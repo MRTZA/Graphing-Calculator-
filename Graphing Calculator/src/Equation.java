@@ -17,23 +17,42 @@ public class Equation {
 	
 	public List<Integer> Solve ()
 	{
-		int y = 0;
+		int c = 0;
+		
 		for(int i = Min; i <= Max; i+=.01)
 		{
 			for(int s = 0; s < Eq.length(); s++)
 			{
+				int y = 0;
 				if((Eq.substring(s, s+1).equals("X")))
 						{
 							if(s != 0)
 							{
 								if(!((Eq.substring(s-1, s)).equals("/")) && ((Eq.substring(s-1, s)).equals("+")) && ((Eq.substring(s-1, s)).equals("*")) && ((Eq.substring(s-1, s)).equals("(")) && ((Eq.substring(s-1, s)).equals("-")) && ((Eq.substring(s+1, s+2)).equals("^")))
 								{
-									int x = (Integer.parseInt(Eq.substring(s-1, s)));
-									y = x*i;
+									if(Eq.substring(s-2, s-1).equals("-"))
+									{
+										int x = (Integer.parseInt(Eq.substring(s-1, s)));
+										y =(-1)*x*i;
+									}
+									else
+									{
+										int x = (Integer.parseInt(Eq.substring(s-1, s)));
+										y = x*i;
+									}
 								
 								}
 							}
+							
 						}
+				if((Eq.substring(s, s+1).equals("+")))
+				{
+					while((c+s+1)< Eq.length())
+							{
+								c++;
+							}
+					y=+ (Integer.parseInt(Eq.substring(s+1, s+2+c)));
+				}
 			}
 		}
 		return null;
