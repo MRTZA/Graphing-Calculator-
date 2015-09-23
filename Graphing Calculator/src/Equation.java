@@ -17,12 +17,13 @@ public class Equation {
 	
 	public List<Integer> Solve ()
 	{
-		int c = 0;
 		
-		for(int i = Min; i <= Max; i+=.01)
+		
+		for(int i = Min; i <= Max; i+=1)
 		{
 			for(int s = 0; s < Eq.length(); s++)
 			{
+				int c = 0;
 				int y = 0;
 				if((Eq.substring(s, s+1).equals("X")))
 						{
@@ -52,6 +53,15 @@ public class Equation {
 								c++;
 							}
 					y=+ (Integer.parseInt(Eq.substring(s+1, s+2+c)));
+				}
+				
+				if((Eq.substring(s, s+1).equals("-")))
+				{
+					while((c+s+1)< Eq.length())
+							{
+								c++;
+							}
+					y=- (Integer.parseInt(Eq.substring(s+1, s+2+c)));
 				}
 			}
 		}
