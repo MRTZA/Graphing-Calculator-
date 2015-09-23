@@ -29,9 +29,9 @@ public class Equation {
 						{
 							if(s != 0)
 							{
-								if(!((Eq.substring(s-1, s)).equals("/")) || ((Eq.substring(s-1, s)).equals("+")) || ((Eq.substring(s-1, s)).equals("*")) || ((Eq.substring(s-1, s)).equals("(")) || ((Eq.substring(s+1, s+2)).equals("^")))
+								if(!((Eq.substring(s-1, s)).equals("/")) || ((Eq.substring(s-1, s)).equals("+")) || ((Eq.substring(s-1, s)).equals("*")) || ((Eq.substring(s-1, s)).equals("(")) || (Eq.substring(s-1, s).equals("-")) || ((Eq.substring(s+1, s+2)).equals("^")))
 								{
-									if(Eq.substring(s-2, s-1).equals("-"))
+									if(Eq.substring(s-2, s-1).equals("_"))
 									{
 										int x = (Integer.parseInt(Eq.substring(s-1, s)));
 										y =(-1)*x*i;
