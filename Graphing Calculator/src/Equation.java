@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Equation {
@@ -5,6 +6,7 @@ public class Equation {
 	private int Max = 0;
 	private int Min = 0;
 	private String Eq = null;
+	private ArrayList<OrderedPair> oP = new ArrayList<OrderedPair>();
 	
 	
 	public Equation(String Equ, int Ma, int Mi)
@@ -15,7 +17,7 @@ public class Equation {
 		
 	}
 	
-	public List<Integer> Solve ()
+	public ArrayList<OrderedPair> Solve ()
 	{
 		
 		
@@ -63,9 +65,13 @@ public class Equation {
 							}
 					y=- (Integer.parseInt(Eq.substring(s+1, s+2+c)));
 				}
+				
+				OrderedPair temp = new OrderedPair(i, y);
+				oP.add(temp);
+				return oP;
 			}
 		}
-		return null;
+		return oP;
 		
 	}
 	
